@@ -78,4 +78,6 @@ bash -c "$(wget -qO- https://raw.githubusercontent.com/harry-cpp/code-nautilus/m
 
 sudo dnf -y remove $(dnf list installed | grep libreoffice | grep -o -E "^\S+")
 
+mkdir ~/workspace
+
 flutter doctor --android-licenses
