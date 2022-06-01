@@ -72,6 +72,7 @@ npm install -g yarn
 
 sudo snap install flutter --classic --channel=stable
 sudo snap install android-studio --classic --stable
+sudo snap install gradle --classic
 sudo snap install telegram-desktop
 sudo snap install code --classic
 sudo snap install snap-store
