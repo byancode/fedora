@@ -75,6 +75,7 @@ sudo snap install android-studio --classic --stable
 sudo snap install gradle --classic
 sudo snap install telegram-desktop
 sudo snap install code --classic
+sudo snap install obs-studio
 sudo snap install snap-store
 sudo snap install insomnia
 sudo snap install postman
