@@ -56,15 +56,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo systemctl disable --now docker.service docker.socket
 
 curl -fsSL https://get.docker.com/rootless | sh
-export PATH=/home/byancode/bin:$PATH
-export DOCKER_HOST=unix:///run/user/1000/docker.sock
-
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
 source ~/.bashrc
 
 nvm install 18.2.0
@@ -81,8 +74,8 @@ sudo snap install insomnia
 sudo snap install postman
 sudo snap install slack
 
-flutter doctor --android-licenses
-
-sudo dnf remove $(dnf list installed | grep libreoffice | grep -o -E "^\S+")
-
 bash -c "$(wget -qO- https://raw.githubusercontent.com/harry-cpp/code-nautilus/master/install.sh)"
+
+sudo dnf -y remove $(dnf list installed | grep libreoffice | grep -o -E "^\S+")
+
+flutter doctor --android-licenses
