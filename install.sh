@@ -37,25 +37,40 @@ sudo dnf -y install \
     php-pear \
     php-json
 
+# CREATE FOLDERS
+mkdir ~/.applications
+mkdir ~/workspace
+
+# GOOGLE CHROME
 sudo rpm --import https://dl.google.com/linux/linux_signing_key.pub
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 sudo dnf -y install google-chrome-stable_current_x86_64.rpm
 
+# COMPOSER
 wget https://getcomposer.org/composer-stable.phar -O /usr/local/bin/composer
 sudo wget https://getcomposer.org/composer-stable.phar -O /usr/local/bin/composer
 sudo chmod +x /usr/local/bin/composer
 
+# HTTPTOOLKIT
+HTTPTOOLKIT_VERSION=1.8.1
+sudo wget https://github.com/httptoolkit/httptoolkit-desktop/releases/download/v${HTTPTOOLKIT_VERSION}/HttpToolkit-linux-x64-${HTTPTOOLKIT_VERSION}.zip
+unzip HttpToolkit-linux-x64-${HTTPTOOLKIT_VERSION}.zip -d ~/.applications
+
+# DOCKER
 sudo dnf config-manager     --add-repo     https://download.docker.com/linux/fedora/docker-ce.repo
 sudo dnf -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 sudo systemctl start docker
 
+# DOCKER-COMPOSE
 sudo dnf -y install docker-compose-plugin
 sudo curl -SL https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
+# ROOTLESS DOCKER
 sudo systemctl disable --now docker.service docker.socket
-
 curl -fsSL https://get.docker.com/rootless | sh
+
+# NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 source ~/.bashrc
@@ -74,10 +89,11 @@ sudo snap install insomnia
 sudo snap install postman
 sudo snap install slack
 
+# ADD VSCODE ON CONTEXTMENU NAUTIUS
 bash -c "$(wget -qO- https://raw.githubusercontent.com/harry-cpp/code-nautilus/master/install.sh)"
 
+# REMOVE LIBREOFFICE
 sudo dnf -y remove $(dnf list installed | grep libreoffice | grep -o -E "^\S+")
 
-mkdir ~/workspace
-
+# ACCEPT
 flutter doctor --android-licenses
