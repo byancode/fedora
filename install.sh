@@ -1,5 +1,6 @@
 sudo dnf -y update
 sudo dnf -y install \
+    java-latest-openjdk \
     dnf-plugins-core \
     fuse-overlayfs \
     neofetch \
