@@ -3,6 +3,7 @@ sudo dnf -y install \
     java-latest-openjdk \
     dnf-plugins-core \
     fuse-overlayfs \
+    android-tools \
     neofetch \
     cmatrix \
     dconf \
