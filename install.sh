@@ -1,6 +1,8 @@
 sudo dnf -y update
 sudo dnf -y install \
     java-latest-openjdk \
+    java-1.8.0-openjdk \
+    java-11-openjdk \
     dnf-plugins-core \
     fuse-overlayfs \
     android-tools \
