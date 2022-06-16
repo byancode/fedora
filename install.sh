@@ -103,3 +103,6 @@ sudo dnf -y remove $(dnf list installed | grep libreoffice | grep -o -E "^\S+")
 
 # ACCEPT
 flutter doctor --android-licenses
+
+# set background gnome
+# gsettings set org.gnome.desktop.background picture-uri '/home/byancode/Imágenes/Fondos de escritorio/p1wn65kczsn51.jpg'
