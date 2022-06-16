@@ -42,7 +42,7 @@ sudo dnf -y install \
     php-json
 
 # CREATE FOLDERS
-mkdir ~/.applications
+mkdir ~/programs
 mkdir ~/workspace
 
 # GOOGLE CHROME
@@ -58,7 +58,7 @@ sudo chmod +x /usr/local/bin/composer
 # HTTPTOOLKIT
 HTTPTOOLKIT_VERSION=1.8.1
 sudo wget https://github.com/httptoolkit/httptoolkit-desktop/releases/download/v${HTTPTOOLKIT_VERSION}/HttpToolkit-linux-x64-${HTTPTOOLKIT_VERSION}.zip
-unzip HttpToolkit-linux-x64-${HTTPTOOLKIT_VERSION}.zip -d ~/.applications
+unzip HttpToolkit-linux-x64-${HTTPTOOLKIT_VERSION}.zip -d ~/programs
 
 # DOCKER
 sudo dnf config-manager     --add-repo     https://download.docker.com/linux/fedora/docker-ce.repo
