@@ -7,6 +7,7 @@ sudo dnf -y install \
     fuse-overlayfs \
     android-tools \
     neofetch \
+    xmodmap \
     cmatrix \
     dconf \
     snapd \
@@ -106,3 +107,17 @@ flutter doctor --android-licenses
 
 # set background gnome
 # gsettings set org.gnome.desktop.background picture-uri '/home/byancode/Imágenes/Fondos de escritorio/p1wn65kczsn51.jpg'
+
+
+xmodmap -e "keycode 232=F1"
+xmodmap -e "keycode 233=F2"
+xmodmap -e "keycode 128=F3"
+xmodmap -e "keycode 212=F4"
+xmodmap -e "keycode 237=F5"
+xmodmap -e "keycode 238=F6"
+xmodmap -e "keycode 173=F7"
+xmodmap -e "keycode 172=F8"
+xmodmap -e "keycode 171=F9"
+xmodmap -e "keycode 121=F10"
+xmodmap -e "keycode 122=F11"
+xmodmap -e "keycode 123=F12"
