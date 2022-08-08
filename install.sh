@@ -109,6 +109,8 @@ flutter doctor --android-licenses
 # gsettings set org.gnome.desktop.background picture-uri '/home/byancode/Imágenes/Fondos de escritorio/p1wn65kczsn51.jpg'
 
 
+
+# Nuphy keyboad - keycodes
 xmodmap -e "keycode 232=F1"
 xmodmap -e "keycode 233=F2"
 xmodmap -e "keycode 128=F3"
