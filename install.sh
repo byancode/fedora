@@ -8,6 +8,7 @@ sudo dnf -y install \
     android-tools \
     neofetch \
     xmodmap \
+    xdotool \
     cmatrix \
     dconf \
     snapd \
@@ -109,20 +110,30 @@ flutter doctor --android-licenses
 # gsettings set org.gnome.desktop.background picture-uri '/home/byancode/Imágenes/Fondos de escritorio/p1wn65kczsn51.jpg'
 
 
+echo '#!/bin/bash
+xmodmap -e "keycode 232=F1 F1 XF86MonBrightnessDown"
+xmodmap -e "keycode 233=F2 F2 XF86MonBrightnessUp"
+xmodmap -e "keycode 128=F3 F3 XF86LaunchA"
+xmodmap -e "keycode 212=F4 F4 XF86LaunchB"
+xmodmap -e "keycode 237=F5 F5 XF86KbdBrightnessDown"
+xmodmap -e "keycode 238=F6 F6 XF86KbdBrightnessUp"
+xmodmap -e "keycode 173=F7 F7 XF86AudioPrev"
+xmodmap -e "keycode 172=F8 F8 XF86AudioPlay"
+xmodmap -e "keycode 171=F9 F9 XF86AudioNext"
+xmodmap -e "keycode 121=F10 F10 XF86AudioMute"
+xmodmap -e "keycode 122=F11 F11 XF86AudioLowerVolume"
+xmodmap -e "keycode 123=F12 F12 XF86AudioRaiseVolume"
 
-# Nuphy keyboad - keycodes
-xmodmap -e "keycode 232=F1"
-xmodmap -e "keycode 233=F2"
-xmodmap -e "keycode 128=F3"
-xmodmap -e "keycode 212=F4"
-xmodmap -e "keycode 237=F5"
-xmodmap -e "keycode 238=F6"
-xmodmap -e "keycode 173=F7"
-xmodmap -e "keycode 172=F8"
-xmodmap -e "keycode 171=F9"
-xmodmap -e "keycode 121=F10"
-xmodmap -e "keycode 122=F11 F11 F11 F11"
-xmodmap -e "keycode 123=F12"
 xmodmap -e "keycode  57=n N ntilde Ntilde ntilde Ntilde ntilde Ntilde ntilde Ntilde ntilde Ntilde"
 # ALT_R = ALT_G
-xmodmap -e "keycode 108 = Mode_switch Mode_switch"
+xmodmap -e "keycode 108=Mode_switch Mode_switch"
+' >> ~/.xmodmap
+
+# convertir en ejecutable
+chmod +x ~/.xmodmap
+
+# show configuration keycodes
+xmodmap -pke
+
+# reset xmodmap
+setxkbmap -option
