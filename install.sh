@@ -133,7 +133,39 @@ xmodmap -e "keycode 108=Mode_switch Mode_switch"
 chmod +x ~/.xmodmap
 
 # show configuration keycodes
-xmodmap -pke
+# xmodmap -pke
 
 # reset xmodmap
-setxkbmap -option
+# setxkbmap -option
+
+
+echo '#!/bin/bash
+git add . && git commit -m "$(echo $@)"
+' >> ~/bin/gac && chmod +x ~/bin/gac
+
+echo '#!/bin/bash
+git add . && git commit -m "$(echo $@)" && git push
+' >> ~/bin/ggp && chmod +x ~/bin/ggp
+
+echo '#!/bin/bash
+echo "# New project" >> README.md
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:$(echo $1).git
+git push -u origin main
+' >> ~/bin/gii && chmod +x ~/bin/gii
+
+
+echo '#!/bin/bash
+echo "# New project" >> README.md
+rm -rf .git
+git init
+git branch -M main
+gh repo create $(echo $1) --private --source=. --remote=upstream
+git add .
+git commit -m "first commit"
+git remote add origin git@github.com:$(echo $1).git
+git push -u origin main
+' >> ~/bin/ghc && chmod +x ~/bin/ghc
